@@ -59,6 +59,28 @@ public void testJobConstructorSetsAllFields(){
                 new CoreCompetency("Persistence"));
         assertFalse(jobThree.equals(jobFour));
     }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job jobThree = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        char charStart = jobThree.toString().charAt(0);
+        char charLast = jobThree.toString().charAt(jobThree.toString().length() - 1);
+        assertEquals(charStart, '\n');
+        assertEquals(charLast, '\n');
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job jobThree = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertTrue(jobThree.toString().contains(jobThree.getName());
+
+
+    }
+
+
+
 
 
 
