@@ -2,8 +2,10 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Job {
-
+public class Job extends JobField {
+    public Job(String value) {
+        super(value);
+    }
     private int id;
     private static int nextId = 1;
 
@@ -13,9 +15,7 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
+
 
     public Job () {
         id = nextId;
@@ -33,11 +33,7 @@ public class Job {
 
 
     }
-// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
 
 
     public String getName() {
@@ -101,35 +97,35 @@ public class Job {
 
     @Override
     public String toString() {
-        String employer = this.getEmployer().getValue();
-        String location = this.getLocation().getValue();
-        String positionType = this.getPositionType().getValue();
-        String coreCompetency = this.getCoreCompetency().getValue();
-
-        if(this.getName().equals("")|| this.getName().equals(null)){
-           this.setName("Data not available");
+        String employerDisplay = this.getEmployer().getValue();
+        String locationDisplay = this.getLocation().getValue();
+        String positionTypeDisplay = this.getPositionType().getValue();
+        String coreCompetencyDisplay = this.getCoreCompetency().getValue();
+        String nameDisplay = this.name;
+        if(nameDisplay.equals("")){
+           nameDisplay ="Data not available";
        }
-        if(employer.equals("")||employer.equals(null)){
-            this.getEmployer().setValue("Data not available");
+        if(employerDisplay.equals("")){
+            employerDisplay = "Data not available";
         }
-        if(location.equals("")|| location.equals(null)){
-            this.getLocation().setValue("Data not available");
+        if(locationDisplay.equals("")){
+            locationDisplay = "Data not available";
         }
-        if(coreCompetency.equals("")||coreCompetency.equals(null)){
-            this.getCoreCompetency().setValue("Data not available");
+        if(coreCompetencyDisplay.equals("")){
+            coreCompetencyDisplay = "Data not available";
         }
-        if(positionType.equals("")||positionType.equals(null)){
-            this.getPositionType().setValue("Data not available");
+        if(positionTypeDisplay.equals("")){
+            positionTypeDisplay = "Data not available";
         }
 
         return
                 "\n"+
                 "ID: " + id +"\n"+
-                "Name: " + name + "\n" +
-                "Employer: " + employer +"\n"+
-                "Location: " + location + "\n"+
-                "Position Type: " + positionType + "\n"+
-                "Core Competency: " + coreCompetency + "\n"
+                "Name: " + nameDisplay + "\n" +
+                "Employer: " + employerDisplay +"\n"+
+                "Location: " + locationDisplay + "\n"+
+                "Position Type: " + positionTypeDisplay + "\n"+
+                "Core Competency: " + coreCompetencyDisplay + "\n"
                 ;
 
 
