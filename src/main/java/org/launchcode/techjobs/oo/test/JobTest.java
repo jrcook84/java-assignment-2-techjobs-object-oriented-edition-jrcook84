@@ -32,6 +32,7 @@ public void testSettingJobId (){
         Job jobTwo = new Job();
         assertNotEquals(jobOne.getId(),jobTwo.getId());
     }
+
     @Test
 
 public void testJobConstructorSetsAllFields(){
@@ -69,15 +70,39 @@ public void testJobConstructorSetsAllFields(){
         assertEquals(charStart, '\n');
         assertEquals(charLast, '\n');
     }
+
     @Test
-    public void testToStringContainsCorrectLabelsAndData(){
+    public void testToStringContainsCorrectLabelsAndData() {
         Job jobThree = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
-        assertTrue(jobThree.toString().contains(jobThree.getName());
-
-
+        String toStringCheck = "\n"+
+                "ID: " +jobThree.getId() +"\n"+
+                "Name: " +jobThree.getName() + "\n" +
+                "Employer: " + jobThree.getEmployer() +"\n"+
+                "Location: " + jobThree.getLocation() + "\n"+
+                "Position Type: " + jobThree.getPositionType() + "\n"+
+                "Core Competency: " + jobThree.getCoreCompetency() + "\n"
+                ;
+        assertEquals(toStringCheck, jobThree.toString());
     }
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job jobThree = new Job("", new Employer("ACME"),
+                new Location("Desert"), new PositionType(""),
+                new CoreCompetency("Persistence"));
+        String toStringCheck = "\n"+
+                "ID: " +jobThree.getId() +"\n"+
+                "Name: " + "Data not available" + "\n" +
+                "Employer: " + jobThree.getEmployer() +"\n"+
+                "Location: " + jobThree.getLocation() + "\n"+
+                "Position Type: " + "Data not available" + "\n"+
+                "Core Competency: " + jobThree.getCoreCompetency() + "\n"
+                ;
+    assertEquals(toStringCheck, jobThree.toString());
+    }
+
+
 
 
 
