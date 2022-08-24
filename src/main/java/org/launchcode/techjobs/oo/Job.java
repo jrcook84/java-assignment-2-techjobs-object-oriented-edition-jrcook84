@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+//Job is inheriting info from JobField, instead of having a bunch of repetitive info in multiple places
 public class Job extends JobField {
     public Job(String value) {
         super(value);

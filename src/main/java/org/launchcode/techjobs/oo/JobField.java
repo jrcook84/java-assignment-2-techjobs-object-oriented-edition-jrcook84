@@ -1,7 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
-
+// created JobField as an abstract class transferred common traits here so they could be shared bw classes
 public abstract class JobField {
     private int id;
     private static int nextId = 1;
@@ -36,8 +36,8 @@ public JobField(){
         return Objects.hash(id);
     }
 
-    // TODO: Use the "Generate" tool to add a getter and setter for the 'value' field but
-    //  ONLY a getter for the 'id' field.
+    // getters and setters generated
+    // no setter required for id bc  this() method ensures all new jobs get a new id
 
     public String getValue() {
         return value;

@@ -16,17 +16,10 @@ public class JobTest {
 
 
 
-//    Job jobOne = new Job();
-//    Job jobTwo = new Job();
-//    Job jobThree = new Job("Product tester", new Employer("ACME"),
-//            new Location("Desert"), new PositionType("Quality control"),
-//            new CoreCompetency("Persistence"));
-//    Job jobFour = new Job("Product tester", new Employer("ACME"),
-//            new Location("Desert"), new PositionType("Quality control"),
-//            new CoreCompetency("Persistence"));
 
     @Test
-
+/* because of the this() method every new job gets a new id, jobs are compared according to id test checks if jobs have the same id
+    instantiated new jobs of the Job type and verifies they are not the same  */
 public void testSettingJobId (){
         Job jobOne = new Job();
         Job jobTwo = new Job();
@@ -34,7 +27,8 @@ public void testSettingJobId (){
     }
 
     @Test
-
+/*verifies that all the fields are set by the constructor does this by instantiating a new Job and comparing the
+field to the actual value */
 public void testJobConstructorSetsAllFields(){
         Job jobThree = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
@@ -51,6 +45,8 @@ public void testJobConstructorSetsAllFields(){
         assertTrue(jobThree.getCoreCompetency() instanceof CoreCompetency);
     }
     @Test
+    /*jobs are equal only if the ids are the same therefore 2 Jobs with the same values arent the same unless they share the same id
+    each new job gets a new id so they are different */
     public void testJobsForEquality(){
         Job jobThree = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
@@ -61,6 +57,7 @@ public void testJobConstructorSetsAllFields(){
         assertFalse(jobThree.equals(jobFour));
     }
     @Test
+    /*makes sure the tostring starts with new lines for formatting */
     public void testToStringStartsAndEndsWithNewLine() {
         Job jobThree = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
@@ -72,6 +69,7 @@ public void testJobConstructorSetsAllFields(){
     }
 
     @Test
+    /*test to make sure the toString isnt all goofy and has the correct data */
     public void testToStringContainsCorrectLabelsAndData() {
         Job jobThree = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
